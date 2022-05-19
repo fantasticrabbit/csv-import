@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
 import { promises as readline } from "readline";
 import { stdin as input, stdout as output } from 'process';
-let papa= import * from 'papaparse';
-
+import pkg from 'papaparse';
+const { pkg: papa } = pkg;
 
 
 
@@ -34,5 +34,5 @@ const getfile=async()=>{
 
 let filename=await getfile();
 let filedata=read_file(filename);
-let jsondata=papaparse.parse(filedata, {header: true});
+let jsondata=papa.parse(filedata, {header: true});
 console.log(jsondata)
