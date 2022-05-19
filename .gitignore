@@ -8,7 +8,6 @@ lerna-debug.log*
 
 # test coverage
 poem.txt
-test.csv
 
 # Dependency directories
 node_modules/

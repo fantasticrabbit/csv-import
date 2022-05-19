@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "papaparse": "^5.3.2"
+  },
+  "name": "csv-import",
+  "version": "0.0.1",
+  "description": "module to import csv data and display in a webpage",
+  "main": "openfile.mjs",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm openfile.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fantasticrabbit/csv-import.git"
+  },
+  "keywords": [
+    "csv"
+  ],
+  "author": "tom riley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fantasticrabbit/csv-import/issues"
+  },
+  "homepage": "https://github.com/fantasticrabbit/csv-import#readme"
+}
