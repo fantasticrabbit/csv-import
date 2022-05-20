@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "papaparse": "^5.3.2"
   },
   "name": "csv-import",
   "version": "0.0.1",
