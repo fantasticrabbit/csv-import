@@ -4,7 +4,7 @@
   "name": "csv-import",
   "version": "0.0.1",
   "description": "module to import csv data and display in a webpage",
-  "main": "openfile.mjs",
+  "main": "openfile.js",
   "type": "module",
   "directories": {
     "test": "test"

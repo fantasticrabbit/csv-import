@@ -1,9 +1,8 @@
 import * as fs from "node:fs/promises";
 import * as readline from "node:readline/promises";
-import once from "events";
 import { stdin as input, stdout as output } from 'process';
 
-const read_file=async(fname)=>{
+export const read_file=async(fname)=>{
     try{
         let file=await fs.open(fname, 'r')
         let stat=await file.stat();
@@ -16,7 +15,7 @@ const read_file=async(fname)=>{
     }
 }
 
-const getfile=async()=>{
+export const getfile=async()=>{
     if (process.argv[2]===undefined) {
         try {
             const rl = readline.createInterface({ input, output });
@@ -32,27 +31,22 @@ const getfile=async()=>{
     }
 }
 
-const getFirstLine=async (xfilex) => {
+export const getAllLines=async (filestr) => {
     try {
-        const rl = await readline.createInterface({
-            input: fs.createReadStream(xfilex),
-            crlfDelay: Infinity
-          });
-    
-        rl.on('line', (line) => {
-            console.log(`Line from file: ${line}`);
-        });
-    
-        await once(rl, 'close');
-    
-        console.log('Header processed.');
-      } catch (err) {
-        console.error(err);
-      }
+        let linearray=filestr.split('\n');
+        return linearray;
+    } catch(err) {
+        console.log(err);
+    }
 }
 
-let filename=await getfile();
-let filedata=await read_file(filename);
-console.log(filedata);
-let header=await getFirstLine(filename);
-console.log(header);
+export const getFirstLine=async (filestring) => {
+    try {
+        let lines=filestring.split('\n')
+        return lines[0];
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+export default {read_file, getfile, getAllLines, getFirstLine}
