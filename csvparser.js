@@ -49,4 +49,24 @@ export const getFirstLine=async (filestring) => {
     }
 }
 
+export const getDelim = (hdline) => {
+    let c=hdline.split(",")
+    let qc=hdline.split('","')
+    let qcsp=hdline.split('", "')
+
+    if (c.length > qc.length && c.length > qcsp.length) {
+        return ","
+    } else if (qc.length >= qcsp.length && (qc.length === c.length || qc.length > 2)) {
+        return '","'
+    } else if (qcsp.length >= qc.length && (qcsp.length === c.length || qcsp.length > 2)) {
+        return '", "'
+    }
+}
+
+export const getFields = (body, dlm) => {
+    return body.split(dlm)
+}
+
+
+
 export default {read_file, getfile, getAllLines, getFirstLine}
