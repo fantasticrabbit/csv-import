@@ -49,10 +49,14 @@ export const getFirstLine=async (filestring) => {
     }
 }
 
-export const getDelim = (hdline) => {
+export const getDelim =async (hdline) => {
+    try {
     let c=hdline.split(",")
     let qc=hdline.split('","')
     let qcsp=hdline.split('", "')
+    console.log(c)
+    console.log(qc)
+    console.log(qcsp)
 
     if (c.length > qc.length && c.length > qcsp.length) {
         return ","
@@ -61,12 +65,17 @@ export const getDelim = (hdline) => {
     } else if (qcsp.length >= qc.length && (qcsp.length === c.length || qcsp.length > 2)) {
         return '", "'
     }
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 export const getFields = (body, dlm) => {
-    return body.split(dlm)
+    let result=[]
+    body.split('\n').forEach(element => {
+        result += element.split(dlm)
+    });
+    return result
 }
 
-
-
-export default {read_file, getfile, getAllLines, getFirstLine}
+export default {read_file, getfile, getAllLines, getFirstLine, getDelim, getFields}

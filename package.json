@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node openfile.js"
+    "test": "node openfile.js test/test.csv"
   },
   "repository": {
     "type": "git",
