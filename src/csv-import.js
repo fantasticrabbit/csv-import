@@ -26,7 +26,7 @@ function handleFiles(files) {
           var data = allTextLines[i].split(',');
               var tarr = [];
               for (var j=0; j<data.length; j++) {
-                  tarr.push(data[j]);
+                  tarr.push(data[j].replace(/"/g, ''));
               }
               lines.push(tarr);
       }
@@ -41,7 +41,6 @@ function handleFiles(files) {
   }
 
   function drawOutput(lines){
-	//Clear previous data
 	document.getElementById("output").innerHTML = "";
 	var table = document.createElement("table");
 	for (var i = 0; i < lines.length; i++) {
